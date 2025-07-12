@@ -1,13 +1,18 @@
 // ==UserScript==
-// @name         VS Code 插件下载助手
+// @name         VS Code Extension Download Helper
+// @name:zh-CN   VS Code 插件下载助手
 // @namespace    http://tampermonkey.net/
-// @version      1.0
-// @description  在VS Code插件市场添加VSIX直接下载按钮
+// @version      1.1
+// @description        Add download buttons in the VS Code Marketplace.
+// @description:zh-CN  在VS Code插件市场添加下载按钮
 // @author       Zeabin
 // @match        https://marketplace.visualstudio.com/items?*
 // @run-at       document-end
 // @icon         https://marketplace.visualstudio.com/favicon.ico
 // @grant        none
+// @license      MIT
+// @downloadURL https://update.greasyfork.org/scripts/535668/VS%20Code%20%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B.user.js
+// @updateURL https://update.greasyfork.org/scripts/535668/VS%20Code%20%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%8A%A9%E6%89%8B.meta.js
 // ==/UserScript==
 
 (function() {
@@ -129,7 +134,6 @@
         // 初始化观察者
         const startObserver = () => {
             observer = new MutationObserver(checkAndInject);
-            const ele = document.querySelector('[role="tabpanel"]') || document.body;
             observer.observe(document.body, config.observerOptions);
         };
 
